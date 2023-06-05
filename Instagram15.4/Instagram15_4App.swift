@@ -24,9 +24,7 @@ struct Instagram15_4App: App {
 
   var body: some Scene {
     WindowGroup {
-      NavigationView {
         ContentView()
-      }
     } 
   }
 }

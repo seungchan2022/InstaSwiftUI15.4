@@ -10,6 +10,10 @@
 		EC49924F2A2AF4E600578BFC /* UploadPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC49924E2A2AF4E600578BFC /* UploadPostView.swift */; };
 		EC4992512A2AF80100578BFC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4992502A2AF80100578BFC /* ImagePicker.swift */; };
 		EC4992532A2AFB6300578BFC /* UploadPostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4992522A2AFB6300578BFC /* UploadPostViewModel.swift */; };
+		EC763CE62A2D9A22006DB0CD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763CE52A2D9A22006DB0CD /* AuthService.swift */; };
+		EC763CE92A2D9BF7006DB0CD /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763CE82A2D9BF7006DB0CD /* ContentViewModel.swift */; };
+		EC763CED2A2DA9D3006DB0CD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763CEC2A2DA9D3006DB0CD /* RegistrationViewModel.swift */; };
+		EC763CEF2A2DBBA7006DB0CD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763CEE2A2DBBA7006DB0CD /* LoginViewModel.swift */; };
 		ECAB64742A28377300A1FC6F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAB64732A28377300A1FC6F /* User.swift */; };
 		ECAB64762A283C6300A1FC6F /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAB64752A283C6300A1FC6F /* CurrentUserProfileView.swift */; };
 		ECAB64782A283F8500A1FC6F /* ProfileHeaderVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAB64772A283F8500A1FC6F /* ProfileHeaderVIew.swift */; };
@@ -40,6 +44,10 @@
 		EC49924E2A2AF4E600578BFC /* UploadPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostView.swift; sourceTree = "<group>"; };
 		EC4992502A2AF80100578BFC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		EC4992522A2AFB6300578BFC /* UploadPostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostViewModel.swift; sourceTree = "<group>"; };
+		EC763CE52A2D9A22006DB0CD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		EC763CE82A2D9BF7006DB0CD /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		EC763CEC2A2DA9D3006DB0CD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		EC763CEE2A2DBBA7006DB0CD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		ECAB64732A28377300A1FC6F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ECAB64752A283C6300A1FC6F /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
 		ECAB64772A283F8500A1FC6F /* ProfileHeaderVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderVIew.swift; sourceTree = "<group>"; };
@@ -78,6 +86,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC763CE42A2D9A10006DB0CD /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				EC763CE52A2D9A22006DB0CD /* AuthService.swift */,
+			);
+			path = AuthService;
+			sourceTree = "<group>";
+		};
+		EC763CE72A2D9BE4006DB0CD /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				ECAB8E282A25AE63006DC28D /* ContentView.swift */,
+				EC763CE82A2D9BF7006DB0CD /* ContentViewModel.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		EC763CEA2A2DA98E006DB0CD /* AuthView */ = {
+			isa = PBXGroup;
+			children = (
+				ECAB8E462A25D04E006DC28D /* LoginView.swift */,
+				ECAB8E482A25D6F0006DC28D /* RegisterEmail.swift */,
+				ECAB8E4A2A25DA0C006DC28D /* RegisterUsername.swift */,
+				ECAB8E4C2A25DC4D006DC28D /* RegisterPassword.swift */,
+				ECAB8E4E2A25DCEA006DC28D /* CompleteSignUpView.swift */,
+			);
+			path = AuthView;
+			sourceTree = "<group>";
+		};
+		EC763CEB2A2DA9B5006DB0CD /* AuthViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EC763CEE2A2DBBA7006DB0CD /* LoginViewModel.swift */,
+				EC763CEC2A2DA9D3006DB0CD /* RegistrationViewModel.swift */,
+			);
+			path = AuthViewModel;
+			sourceTree = "<group>";
+		};
 		ECAB64722A28376600A1FC6F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,7 +155,6 @@
 				ECAB64722A28376600A1FC6F /* Model */,
 				ECAB8E342A25AEBF006DC28D /* View */,
 				ECAB8E262A25AE63006DC28D /* Instagram15_4App.swift */,
-				ECAB8E282A25AE63006DC28D /* ContentView.swift */,
 				EC4992502A2AF80100578BFC /* ImagePicker.swift */,
 				ECAB8E2A2A25AE64006DC28D /* Assets.xcassets */,
 				ECE5DF792A2B04C9002E03F8 /* GoogleService-Info.plist */,
@@ -129,6 +174,7 @@
 		ECAB8E342A25AEBF006DC28D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EC763CE72A2D9BE4006DB0CD /* Root */,
 				ECAB8E3B2A25AEFE006DC28D /* Auth */,
 				ECAB8E392A25AEDB006DC28D /* Main */,
 				ECAB8E382A25AED8006DC28D /* Feed */,
@@ -195,11 +241,9 @@
 		ECAB8E3B2A25AEFE006DC28D /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				ECAB8E462A25D04E006DC28D /* LoginView.swift */,
-				ECAB8E482A25D6F0006DC28D /* RegisterEmail.swift */,
-				ECAB8E4A2A25DA0C006DC28D /* RegisterUsername.swift */,
-				ECAB8E4C2A25DC4D006DC28D /* RegisterPassword.swift */,
-				ECAB8E4E2A25DCEA006DC28D /* CompleteSignUpView.swift */,
+				EC763CEA2A2DA98E006DB0CD /* AuthView */,
+				EC763CEB2A2DA9B5006DB0CD /* AuthViewModel */,
+				EC763CE42A2D9A10006DB0CD /* AuthService */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -290,17 +334,21 @@
 				ECAB8E4F2A25DCEA006DC28D /* CompleteSignUpView.swift in Sources */,
 				ECAB647C2A28419100A1FC6F /* Post.swift in Sources */,
 				ECAB64762A283C6300A1FC6F /* CurrentUserProfileView.swift in Sources */,
+				EC763CE62A2D9A22006DB0CD /* AuthService.swift in Sources */,
 				ECAB8E412A25BE12006DC28D /* FeedView.swift in Sources */,
 				EC4992512A2AF80100578BFC /* ImagePicker.swift in Sources */,
 				EC49924F2A2AF4E600578BFC /* UploadPostView.swift in Sources */,
 				ECAB8E3F2A25B479006DC28D /* ProfileView.swift in Sources */,
 				ECAB8E4D2A25DC4D006DC28D /* RegisterPassword.swift in Sources */,
 				ECAB8E292A25AE63006DC28D /* ContentView.swift in Sources */,
+				EC763CED2A2DA9D3006DB0CD /* RegistrationViewModel.swift in Sources */,
 				ECAB8E452A25C6FD006DC28D /* SearchView.swift in Sources */,
 				ECAB8E272A25AE63006DC28D /* Instagram15_4App.swift in Sources */,
 				ECAB8E3D2A25AF21006DC28D /* MainTabView.swift in Sources */,
 				ECAB647A2A283FFF00A1FC6F /* ProfileCellView.swift in Sources */,
 				ECAB8E472A25D04E006DC28D /* LoginView.swift in Sources */,
+				EC763CE92A2D9BF7006DB0CD /* ContentViewModel.swift in Sources */,
+				EC763CEF2A2DBBA7006DB0CD /* LoginViewModel.swift in Sources */,
 				ECAB8E492A25D6F0006DC28D /* RegisterEmail.swift in Sources */,
 				ECAB8E432A25BE21006DC28D /* FeedCell.swift in Sources */,
 				EC4992532A2AFB6300578BFC /* UploadPostViewModel.swift in Sources */,

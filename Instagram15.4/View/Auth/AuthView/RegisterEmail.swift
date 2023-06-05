@@ -9,10 +9,13 @@ import SwiftUI
 
 struct RegisterEmail: View {
     
-    @State private var email: String = ""
+//    @State private var email: String = ""
     
     // 기본으로 설정되어있는 네비게이션의 backButton 말고 커스텀 하려 사용하기 위해
     @Environment(\.dismiss) var dismiss
+    
+    // data가 다른 view로 깊어지면서 전달되지 않게 하고 싶기 때문에 사용 => 여기서는 email만 필요
+    @EnvironmentObject var viewModel: RegistrationViewModel
     
     var body: some View {
         VStack(spacing: 20) {
@@ -25,7 +28,7 @@ struct RegisterEmail: View {
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
             
-            TextField("Enter your email..", text: $email)
+            TextField("Enter your email..", text: $viewModel.email)
                 .autocapitalization(.none)
                 .font(.subheadline)
                 .padding(12)

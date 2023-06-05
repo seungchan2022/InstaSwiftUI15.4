@@ -11,6 +11,7 @@ struct LoginView: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+    @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
         NavigationView {
@@ -25,7 +26,7 @@ struct LoginView: View {
                 
                 VStack(spacing: 15) {
                     
-                    TextField("Enter your email..", text: $email)
+                    TextField("Enter your email..", text: $viewModel.email)
                         .autocapitalization(.none)
                         .font(.subheadline)
                         .padding(12)
@@ -33,7 +34,7 @@ struct LoginView: View {
                         .cornerRadius(10)
                         .padding(.horizontal, 24)
                     
-                    TextField("Password..", text: $password)
+                    TextField("Password..", text: $viewModel.password)
                         .autocapitalization(.none)
                         .font(.subheadline)
                         .padding(12)
@@ -53,7 +54,7 @@ struct LoginView: View {
                 .padding(.top, 10)
                 
                 Button {
-                    print("DEBUG: Did tap log in button..")
+                    Task { try await viewModel.logIn() }
                 } label: {
                     Text("Log In")
                         .font(.title3)

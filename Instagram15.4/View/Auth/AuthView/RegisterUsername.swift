@@ -1,5 +1,5 @@
 //
-//  RegisterPassword.swift
+//  RegisterUsername.swift
 //  Instagram15.4
 //
 //  Created by 승찬 on 2023/05/30.
@@ -7,26 +7,25 @@
 
 import SwiftUI
 
-struct RegisterPassword: View {
-    
-    @State private var password: String = ""
-    
+struct RegisterUsername: View {
+        
     // 기본으로 설정되어있는 네비게이션의 backButton 말고 커스텀 하려 사용하기 위해
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var viewModel: RegistrationViewModel
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Create a password")
+            Text("Create username")
                 .font(.largeTitle)
                 .fontWeight(.bold)
             
-            Text("Your password must be at least 6 characters in length.")
+            Text("Pick a usernmae for your new account. You can always change it later.")
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal)
             
-            TextField("Password", text: $password)
+            TextField("Username", text: $viewModel.username)
                 .autocapitalization(.none)
                 .font(.subheadline)
                 .padding(12)
@@ -35,7 +34,7 @@ struct RegisterPassword: View {
                 .padding(.horizontal, 24)
             
             NavigationLink {
-                CompleteSignUpView()
+                RegisterPassword()
                     .navigationBarBackButtonHidden(true)
             } label: {
                 Text("Next")
@@ -48,6 +47,7 @@ struct RegisterPassword: View {
             }
             .padding(.vertical)
 
+            
             Spacer()
         }   // Vstack
         .toolbar {
@@ -62,8 +62,8 @@ struct RegisterPassword: View {
     }
 }
 
-struct RegisterPassword_Previews: PreviewProvider {
+struct RegisterUsername_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterPassword()
+        RegisterUsername()
     }
 }
