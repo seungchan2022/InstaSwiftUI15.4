@@ -73,7 +73,7 @@ struct UploadPostView: View {
             showingImagePicker.toggle()
         }
         .sheet(isPresented: $showingImagePicker) {
-            ImagePicker(image: $viewModel.selectedImage, tabIndex: $tabIndex)
+            ImagePicker(image: $viewModel.selectedImage)
         }
     }
 }

@@ -11,8 +11,7 @@ import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
-    @Binding var tabIndex: Int
-    
+//    @Binding var tabIndex: Int
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images
@@ -40,7 +39,7 @@ struct ImagePicker: UIViewControllerRepresentable {
             picker.dismiss(animated: true)
             
             guard let provider = results.first?.itemProvider else {
-                parent.tabIndex = 0
+//                parent.tabIndex = 0
                 return
             }
             

@@ -17,6 +17,7 @@ class ContentViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     @Published var userSession: FirebaseAuth.User?
+    @Published var currentUser: User?
     
     init() {
         setupSubscribers()
@@ -26,5 +27,12 @@ class ContentViewModel: ObservableObject {
         service.$userSession.sink { [weak self] userSession in
             self?.userSession = userSession
         }.store(in: &cancellables)
+        
+        // AuthService에 대한 데이터를 사용하기 위해 구독을 해야 된다.
+        service.$currentUser.sink { [weak self] currentUser in
+            self?.currentUser = currentUser
+        }.store(in: &cancellables)
     }
+    
+    
 }

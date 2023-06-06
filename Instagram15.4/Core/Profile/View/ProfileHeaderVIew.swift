@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProfileHeaderVIew: View {
     
+    @State private var showEditProfile = false
+    
     let user: User
     
     var body: some View {
@@ -63,14 +65,17 @@ struct ProfileHeaderVIew: View {
             }   // Hstack
             .padding(.horizontal)
             
-            VStack(alignment: .leading, spacing: 5) {    // fullname, username
+            VStack(alignment: .leading, spacing: 5) {    // fullname, bio
                 if let fullname = user.fullname {
                     Text(fullname)
                         .fontWeight(.semibold)
                 }
                 
-                Text(user.username)
-                
+                if let bio = user.bio {
+                    Text(bio)
+                        .fontWeight(.semibold)
+                }
+                                
             }   // VStack
             .font(.footnote)
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -80,19 +85,28 @@ struct ProfileHeaderVIew: View {
             // Action button
             
             Button {
-                print("DEBUG: Did tap edit profile button..")
+                if user.isCurrentUser {
+                    showEditProfile.toggle()
+                } else {
+                    print("Follow user..")
+                }
             } label: {
-                Text("Edit Profile")
+                Text(user.isCurrentUser ? "Edit Profile" : "Follow")
                     .font(.subheadline)
                     .fontWeight(.bold)
                     .frame(width: 320, height: 32)
-                    .foregroundColor(.black)
+                    .background(user.isCurrentUser ? .white : Color(.systemBlue))
+                    .foregroundColor(user.isCurrentUser ? .black : .white)
+                    .cornerRadius(10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10).stroke(Color.gray.opacity(0.5), lineWidth: 2)
                     )
             }
             .padding(.top, 5)
         }   // VStack (헤더뷰)
+        .fullScreenCover(isPresented: $showEditProfile) {
+            EditProfileView(user: user)
+        }
         
     }
 }

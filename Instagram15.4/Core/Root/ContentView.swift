@@ -19,8 +19,8 @@ struct ContentView: View {
             if viewModel.userSession == nil {
                 LoginView()
                     .environmentObject(registrationViewModel)
-            } else {
-                MainTabView()
+            } else if let currentUser = viewModel.currentUser { // 현재 로그인된 사용자의 제대로된 정보가 나오도록
+                MainTabView(user: currentUser)
             }
         }
     }

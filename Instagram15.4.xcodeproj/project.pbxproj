@@ -14,6 +14,11 @@
 		EC763CE92A2D9BF7006DB0CD /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763CE82A2D9BF7006DB0CD /* ContentViewModel.swift */; };
 		EC763CED2A2DA9D3006DB0CD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763CEC2A2DA9D3006DB0CD /* RegistrationViewModel.swift */; };
 		EC763CEF2A2DBBA7006DB0CD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763CEE2A2DBBA7006DB0CD /* LoginViewModel.swift */; };
+		ECA0A5C82A2ED3AC00D1F9AB /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A5C72A2ED3AC00D1F9AB /* UserService.swift */; };
+		ECA0A5CA2A2ED51A00D1F9AB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A5C92A2ED51A00D1F9AB /* SearchViewModel.swift */; };
+		ECA0A5CE2A2EFAEC00D1F9AB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A5CD2A2EFAEC00D1F9AB /* EditProfileView.swift */; };
+		ECA0A5D02A2F09F500D1F9AB /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A5CF2A2F09F500D1F9AB /* EditProfileViewModel.swift */; };
+		ECA0A5D22A2F295F00D1F9AB /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A5D12A2F295F00D1F9AB /* ImageUploader.swift */; };
 		ECAB64742A28377300A1FC6F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAB64732A28377300A1FC6F /* User.swift */; };
 		ECAB64762A283C6300A1FC6F /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAB64752A283C6300A1FC6F /* CurrentUserProfileView.swift */; };
 		ECAB64782A283F8500A1FC6F /* ProfileHeaderVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECAB64772A283F8500A1FC6F /* ProfileHeaderVIew.swift */; };
@@ -48,6 +53,11 @@
 		EC763CE82A2D9BF7006DB0CD /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		EC763CEC2A2DA9D3006DB0CD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		EC763CEE2A2DBBA7006DB0CD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		ECA0A5C72A2ED3AC00D1F9AB /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		ECA0A5C92A2ED51A00D1F9AB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		ECA0A5CD2A2EFAEC00D1F9AB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		ECA0A5CF2A2F09F500D1F9AB /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		ECA0A5D12A2F295F00D1F9AB /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		ECAB64732A28377300A1FC6F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		ECAB64752A283C6300A1FC6F /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
 		ECAB64772A283F8500A1FC6F /* ProfileHeaderVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderVIew.swift; sourceTree = "<group>"; };
@@ -124,6 +134,35 @@
 			path = AuthViewModel;
 			sourceTree = "<group>";
 		};
+		ECA0A5C62A2ED36100D1F9AB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				ECA0A5C72A2ED3AC00D1F9AB /* UserService.swift */,
+				ECA0A5D12A2F295F00D1F9AB /* ImageUploader.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		ECA0A5CB2A2EFAB900D1F9AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ECAB8E3E2A25B479006DC28D /* ProfileView.swift */,
+				ECAB64752A283C6300A1FC6F /* CurrentUserProfileView.swift */,
+				ECAB64772A283F8500A1FC6F /* ProfileHeaderVIew.swift */,
+				ECAB64792A283FFF00A1FC6F /* ProfileCellView.swift */,
+				ECA0A5CD2A2EFAEC00D1F9AB /* EditProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ECA0A5CC2A2EFAC600D1F9AB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ECA0A5CF2A2F09F500D1F9AB /* EditProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		ECAB64722A28376600A1FC6F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				ECAB64722A28376600A1FC6F /* Model */,
-				ECAB8E342A25AEBF006DC28D /* View */,
+				ECAB8E342A25AEBF006DC28D /* Core */,
+				ECA0A5C62A2ED36100D1F9AB /* Service */,
 				ECAB8E262A25AE63006DC28D /* Instagram15_4App.swift */,
 				EC4992502A2AF80100578BFC /* ImagePicker.swift */,
 				ECAB8E2A2A25AE64006DC28D /* Assets.xcassets */,
@@ -171,7 +211,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		ECAB8E342A25AEBF006DC28D /* View */ = {
+		ECAB8E342A25AEBF006DC28D /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				EC763CE72A2D9BE4006DB0CD /* Root */,
@@ -183,7 +223,7 @@
 				ECAB8E352A25AECE006DC28D /* Notification */,
 				ECAB8E3A2A25AEF9006DC28D /* Profile */,
 			);
-			path = View;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		ECAB8E352A25AECE006DC28D /* Notification */ = {
@@ -206,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				ECAB8E442A25C6FD006DC28D /* SearchView.swift */,
+				ECA0A5C92A2ED51A00D1F9AB /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -230,10 +271,8 @@
 		ECAB8E3A2A25AEF9006DC28D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				ECAB8E3E2A25B479006DC28D /* ProfileView.swift */,
-				ECAB64752A283C6300A1FC6F /* CurrentUserProfileView.swift */,
-				ECAB64772A283F8500A1FC6F /* ProfileHeaderVIew.swift */,
-				ECAB64792A283FFF00A1FC6F /* ProfileCellView.swift */,
+				ECA0A5CB2A2EFAB900D1F9AB /* View */,
+				ECA0A5CC2A2EFAC600D1F9AB /* ViewModel */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -329,13 +368,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECAB64782A283F8500A1FC6F /* ProfileHeaderVIew.swift in Sources */,
+				ECA0A5C82A2ED3AC00D1F9AB /* UserService.swift in Sources */,
 				ECAB64742A28377300A1FC6F /* User.swift in Sources */,
 				ECAB8E4B2A25DA0C006DC28D /* RegisterUsername.swift in Sources */,
+				ECA0A5D02A2F09F500D1F9AB /* EditProfileViewModel.swift in Sources */,
 				ECAB8E4F2A25DCEA006DC28D /* CompleteSignUpView.swift in Sources */,
 				ECAB647C2A28419100A1FC6F /* Post.swift in Sources */,
 				ECAB64762A283C6300A1FC6F /* CurrentUserProfileView.swift in Sources */,
 				EC763CE62A2D9A22006DB0CD /* AuthService.swift in Sources */,
 				ECAB8E412A25BE12006DC28D /* FeedView.swift in Sources */,
+				ECA0A5CE2A2EFAEC00D1F9AB /* EditProfileView.swift in Sources */,
 				EC4992512A2AF80100578BFC /* ImagePicker.swift in Sources */,
 				EC49924F2A2AF4E600578BFC /* UploadPostView.swift in Sources */,
 				ECAB8E3F2A25B479006DC28D /* ProfileView.swift in Sources */,
@@ -345,6 +387,7 @@
 				ECAB8E452A25C6FD006DC28D /* SearchView.swift in Sources */,
 				ECAB8E272A25AE63006DC28D /* Instagram15_4App.swift in Sources */,
 				ECAB8E3D2A25AF21006DC28D /* MainTabView.swift in Sources */,
+				ECA0A5CA2A2ED51A00D1F9AB /* SearchViewModel.swift in Sources */,
 				ECAB647A2A283FFF00A1FC6F /* ProfileCellView.swift in Sources */,
 				ECAB8E472A25D04E006DC28D /* LoginView.swift in Sources */,
 				EC763CE92A2D9BF7006DB0CD /* ContentViewModel.swift in Sources */,
@@ -352,6 +395,7 @@
 				ECAB8E492A25D6F0006DC28D /* RegisterEmail.swift in Sources */,
 				ECAB8E432A25BE21006DC28D /* FeedCell.swift in Sources */,
 				EC4992532A2AFB6300578BFC /* UploadPostViewModel.swift in Sources */,
+				ECA0A5D22A2F295F00D1F9AB /* ImageUploader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

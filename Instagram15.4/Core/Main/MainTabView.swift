@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainTabView: View {
+    // 각 user에 맞게 나오기 위해
+    let user: User
     
     @State private var selection = 0
 
@@ -40,7 +42,7 @@ struct MainTabView: View {
                 }
                 .tag(3)
             
-            CurrentUserProfileView(user: User.MOCK_USERS[4])
+            CurrentUserProfileView(user: user)
                 .tabItem {
                     selection == 4 ? Image("profile_selected") : Image( "profile_unselected")
                 }
@@ -60,7 +62,7 @@ struct MainTabView: View {
 
 struct MainTab_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView()
+        MainTabView(user: User.MOCK_USERS[1])
     }
 }
 
