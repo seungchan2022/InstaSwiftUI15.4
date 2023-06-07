@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import Firebase
 
 struct Post: Identifiable, Hashable, Codable {
     let id: String  // post id
@@ -14,7 +15,7 @@ struct Post: Identifiable, Hashable, Codable {
     let caption: String
     var likes: Int
     let imageUrl: String   // post image
-    let timestamp: Date
+    let timestamp: Timestamp
     var user: User?     // 유저에 대한 데이터는 이렇게 불러온다 => 불러올 유저 데이터: 프로필이미지, 유저 이름
 }
 
@@ -27,7 +28,7 @@ extension Post {
               caption: "I'm ironman",
               likes: 32,
               imageUrl: "ironman",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[0]
              ),
         .init(id: NSUUID().uuidString,
@@ -35,7 +36,7 @@ extension Post {
               caption: "I'm groot",
               likes: 9,
               imageUrl: "groot",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[1]
              ),
         .init(id: NSUUID().uuidString,
@@ -43,7 +44,7 @@ extension Post {
               caption: "Why so serious ~",
               likes: 25,
               imageUrl: "joker",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[2]
              ),
         .init(id: NSUUID().uuidString,
@@ -51,7 +52,7 @@ extension Post {
               caption: "This is a some caption text or now this is a some caption his is a some caption text or now this is a some caption..",
               likes: 12,
               imageUrl: "spiderman",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[3]
              ),
         .init(id: NSUUID().uuidString,
@@ -59,7 +60,7 @@ extension Post {
               caption: "This is a some caption text or now this is a some caption.This is a some caption text or now this is a some caption.",
               likes: 4,
               imageUrl: "venom-7",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[4]
              ),
         .init(id: NSUUID().uuidString,
@@ -67,7 +68,7 @@ extension Post {
               caption: "This is a some caption text or now this is a some caption.",
               likes: 7,
               imageUrl: "venom",
-              timestamp: Date(),
+              timestamp: Timestamp(),
               user: User.MOCK_USERS[4]
              ),
     ]

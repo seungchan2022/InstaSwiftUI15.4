@@ -39,7 +39,13 @@ struct UploadPostView: View {
                 Spacer()
                 
                 Button {
-                    print("DEBUG: Handle Upload")
+                    Task {
+                        try await viewModel.uploadPost(caption: caption)
+                        caption = ""
+                        viewModel.selectedImage = nil
+                        viewModel.postImage = nil
+                        tabIndex = 0
+                    }
                 } label: {
                     Text("Upload")
                 }

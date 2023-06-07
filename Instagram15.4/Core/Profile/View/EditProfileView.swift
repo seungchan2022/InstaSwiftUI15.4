@@ -37,7 +37,10 @@ struct EditProfileView: View {
                 Spacer()
                 
                 Button {
-                    Task { try await viewModel.uplaodUserData() }
+                    Task {
+                        try await viewModel.uplaodUserData()
+                        dismiss()
+                    }
                 } label: {
                     Text("Done")
                         .font(.subheadline)
@@ -50,7 +53,6 @@ struct EditProfileView: View {
             
             VStack(spacing: 10) {
                 // image, text
-                
                 Group {
                     if let image = viewModel.profileImage {
                         image
@@ -58,10 +60,7 @@ struct EditProfileView: View {
                             .frame(width: 100, height: 100)
                             .clipShape(Circle())
                     } else {
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
+                        CircleProfileImage(user: viewModel.user, size: .large)
                     }
                 }
                 .onTapGesture {

@@ -16,9 +16,7 @@ struct ProfileView: View {
     var posts: [Post] {
         return Post.MOCK_POSTS.filter({ $0.user?.username == user.username })
     }
-    
-    
-    
+        
     var body: some View {
         
         ScrollView {

@@ -10,6 +10,12 @@ import Firebase
 
 struct UserService {
     
+    // uid를 통해 하나의 유저만 불러오도록
+    static func fetchUser(withUid uid: String) async throws -> User {
+        let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
+        return try snapshot.data(as: User.self)
+    }
+    
     static func fetchAllUsers() async throws -> [User] {
         var users = [User]()
         

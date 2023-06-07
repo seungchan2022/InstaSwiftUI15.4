@@ -17,11 +17,7 @@ struct ProfileHeaderVIew: View {
         VStack(spacing: 10) {    // 헤더뷰
             
             HStack {    // profileImage, userstats
-                Image(user.profileImageUrl ?? "")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 64, height: 64)
-                    .clipShape(Circle())
+                CircleProfileImage(user: user, size: .medium)
                 
                 Spacer()
                 

@@ -26,6 +26,14 @@ class EditProfileViewModel: ObservableObject {
     // 이러한 업데이트 옵션을 성공적으로 실행하려면 사용자에 대한 몇 가지 사항을 알아야 하기 때문에 사용자에 대해 초기화
     init(user: User) {
         self.user = user
+        
+        if let fullname = user.fullname {
+            self.fullname = fullname
+        }
+        
+        if let bio = user.bio  {
+            self.bio = bio
+        }
     }
     
     // => 내가 선택한 이미지가 나오기 위해 그 이미지에 대한 데이터가 필요하므로 viewModel을 통해 이미지에 대한 데이터를 가져오고 그 데이터를 view에 다가 설정

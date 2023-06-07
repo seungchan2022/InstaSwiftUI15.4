@@ -26,10 +26,10 @@ struct User: Identifiable, Hashable, Codable {
 
 extension User {
     static var MOCK_USERS: [User] = [
-        .init(id: NSUUID().uuidString, username: "ironman", fullname: "Tony Stark", bio: "ironman bio",profileImageUrl: "ironman", email: "ironman@gmail.com"),
-        .init(id: NSUUID().uuidString, username: "groot", fullname: nil, bio: "ironman bio", profileImageUrl: "groot", email: "groot@gmail.com"),
-        .init(id: NSUUID().uuidString, username: "joker", fullname: "Heath Ledger", bio: "ironman bio",  profileImageUrl: "joker", email: "joker@gmail.com"),
-        .init(id: NSUUID().uuidString, username: "spiderman", fullname: "Peter Parker", bio: "ironman bio",  profileImageUrl: "spiderman", email: "spiderman@gmail.com"),
-        .init(id: NSUUID().uuidString, username: "venom", fullname: "Eddie Brock", bio: "ironman bio", profileImageUrl: "venom-7", email: "venom@gmail.com"),
+        .init(id: NSUUID().uuidString, username: "ironman", fullname: "Tony Stark", bio: "ironman bio",profileImageUrl: nil, email: "ironman@gmail.com"),
+        .init(id: NSUUID().uuidString, username: "groot", fullname: nil, bio: "ironman bio", profileImageUrl: nil, email: "groot@gmail.com"),
+        .init(id: NSUUID().uuidString, username: "joker", fullname: "Heath Ledger", bio: "ironman bio",  profileImageUrl: nil, email: "joker@gmail.com"),
+        .init(id: NSUUID().uuidString, username: "spiderman", fullname: "Peter Parker", bio: "ironman bio",  profileImageUrl: nil, email: "spiderman@gmail.com"),
+        .init(id: NSUUID().uuidString, username: "venom", fullname: "Eddie Brock", bio: "ironman bio", profileImageUrl: nil, email: "venom@gmail.com"),
     ]
 }

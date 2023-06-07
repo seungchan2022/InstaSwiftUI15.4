@@ -23,13 +23,7 @@ struct SearchView: View {
                 // => user에 대한 데이터가 들어가야된다
                 Button(action: { selectedUser = user }) {
                     HStack {
-                        //                        Image(user.profileImageUrl ?? "")
-                        Image(systemName: "person.circle")
-                            .resizable()
-                            .scaledToFill()
-                            .background(.gray)
-                            .frame(width: 40, height: 40)
-                            .clipShape(Circle())
+                        CircleProfileImage(user: user, size: .xSmall)
                         
                         VStack(alignment: .leading, spacing: 5) {
                             Text(user.username)

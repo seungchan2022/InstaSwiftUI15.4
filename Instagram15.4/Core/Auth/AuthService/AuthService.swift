@@ -53,9 +53,11 @@ class AuthService {
     @MainActor
     func loadUserData() async throws {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
-        let snapshot = try await Firestore.firestore().collection("users").document(currentUid).getDocument()
-        // => snapshot을 통해서 현재 유저에 대한 데이터가 나오는데 그것을 @Published로 설정
-        self.currentUser = try? snapshot.data(as: User.self)    // 디코딩
+//        let snapshot = try await Firestore.firestore().collection("users").document(currentUid).getDocument()
+//        // => snapshot을 통해서 현재 유저에 대한 데이터가 나오는데 그것을 @Published로 설정
+//        self.currentUser = try? snapshot.data(as: User.self)    // 디코딩
+        // UserService에서 uid를 통해 user의 데이터를 얻는 함수 구현
+        self.currentUser = try await UserService.fetchUser(withUid: currentUid)
     }
     
     // 로그아웃은 에러가 발생할 일이 없으므로 async throws 사용을 안하는 것인가??

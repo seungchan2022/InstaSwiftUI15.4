@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FeedCell: View {
     
@@ -14,26 +15,23 @@ struct FeedCell: View {
     var body: some View {
         VStack {
             HStack {    // profileImage, username
-                Image(post.user?.profileImageUrl ?? "")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 48, height: 48)
-                    .clipShape(Circle())
-                
-                Button {
-                    print("DEBUG: Did tap user name button..")
-                } label: {
-                    Text(post.user?.username ?? "")
-                        .font(.headline)
-                        .foregroundColor(.black)
+                if let user = post.user {
+                    CircleProfileImage(user: user, size: .small)
+                    
+                    Button {
+                        print("DEBUG: Did tap user name button..")
+                    } label: {
+                        Text(post.user?.username ?? "")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                    }
                 }
-                
                 Spacer()
             }
             .padding(.horizontal, 8)
             
             // postImage
-            Image(post.imageUrl)
+            KFImage(URL(string: post.imageUrl))
                 .resizable()
                 .scaledToFill()
                 .frame(height: 400)

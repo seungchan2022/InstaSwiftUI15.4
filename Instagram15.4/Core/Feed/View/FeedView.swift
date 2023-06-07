@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct FeedView: View {
+    
+    @StateObject var viewModel = FeedViewModel()
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack {
-                    ForEach(Post.MOCK_POSTS) { post in
+                    ForEach(viewModel.posts) { post in
                         FeedCell(post: post)
                     }
                     .padding(.bottom, 20)   // 포스트가 끝나고 다음 포스트와의 간격
