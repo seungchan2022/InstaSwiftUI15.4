@@ -12,10 +12,6 @@ import SwiftUI
 struct ProfileView: View {
     
     let user: User
-    
-    var posts: [Post] {
-        return Post.MOCK_POSTS.filter({ $0.user?.username == user.username })
-    }
         
     var body: some View {
         
@@ -30,7 +26,7 @@ struct ProfileView: View {
                 Divider()
                     .background(.black)
                 
-                ProfileCellView(posts: posts)
+                ProfileCellView(user: user)
                 
             }   // VStack (전체 view)
             .padding(.top, 10)  // Navigation bar와 살짝 떨어지도록

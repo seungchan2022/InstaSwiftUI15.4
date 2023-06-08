@@ -6,10 +6,15 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileCellView: View {
     
-    var posts: [Post]
+    @StateObject var viewModel: ProfileCellViewModel
+    
+    init(user: User) {
+        self._viewModel = StateObject(wrappedValue: ProfileCellViewModel(user: user))
+    }
     
     let imageDimension: CGFloat = (UIScreen.main.bounds.width / 3) - 1
        
@@ -22,8 +27,8 @@ struct ProfileCellView: View {
     var body: some View {
         // 포스트
         LazyVGrid(columns: gridItem, spacing: 1) {  // Grid안에 있는 spacing은 lineSpacing
-            ForEach(posts) { post in
-                Image(post.imageUrl)
+            ForEach(viewModel.posts) { post in
+                KFImage(URL(string: post.imageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: imageDimension, height: imageDimension)
@@ -36,6 +41,6 @@ struct ProfileCellView: View {
 
 struct ProfileCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileCellView(posts: Post.MOCK_POSTS)
+        ProfileCellView(user: User.MOCK_USERS[0])
     }
 }

@@ -10,7 +10,8 @@ import Firebase
 
 struct PostService {
     
-    static func fetchPosts() async throws -> [Post] {
+    // Feed에 모든 포스트를 나타내는 함수
+    static func fetchFeedPosts() async throws -> [Post] {
 //        var posts = [Post]()
         
         // posts에 대한 모든 snapshot 데이터
@@ -45,6 +46,14 @@ struct PostService {
             posts[i].user = postUser
         }
         
+        return posts
+    }
+    
+    // 각 user에 맞는 포스트를 프로필에 나타내는 함수
+    static func fetchUserPosts(uid: String) async throws -> [Post] {
+        // post의 owneruid를 통해 각 유저에 맞는 포스트를 필터링 하여 표현
+        let snapshot = try await Firestore.firestore().collection("posts").whereField("ownerUid", isEqualTo: uid).getDocuments()
+        var posts = try snapshot.documents.compactMap({ try $0.data(as: Post.self) })
         return posts
     }
 }
