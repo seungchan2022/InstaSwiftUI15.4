@@ -49,9 +49,11 @@ struct SearchView: View {
             
             .navigationTitle("Explore")
             .navigationBarTitleDisplayMode(.inline)
+            .padding(.top, 10)
             
-            .sheet(item: $selectedUser) { user in
+            .fullScreenCover(item: $selectedUser) { user in
                 ProfileView(user: user)
+//                    .navigationBarBackButtonHidden(true)
             }
         }   // NavigationView
     }

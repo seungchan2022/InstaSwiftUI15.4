@@ -15,7 +15,7 @@ struct PostService {
 //        var posts = [Post]()
         
         // posts에 대한 모든 snapshot 데이터
-        let snapshot = try await Firestore.firestore().collection("posts").getDocuments()
+        let snapshot = try await COLLECTION_POSTS.getDocuments()
 //        let documents = snapshot.documents
 //
 //        for doc in documents {
@@ -28,6 +28,7 @@ struct PostService {
         // 이렇게 하면 위에거 생략 가능
         var posts = try snapshot.documents.compactMap({ try $0.data(as: Post.self) })
         
+        posts.sort(by: { $0.timestamp.seconds > $1.timestamp.seconds })
 //        // 포스트에 유저에 대한 정보를 나타내기 위해
 //        for post in posts {
 //            let ownerUid = post.ownerUid
@@ -36,7 +37,7 @@ struct PostService {
 //            post.user = postUser
 //        }
         
-        // => post가 let이므로 아래와 같이 변경 => 데이터만 필요하므로 인덱스로 접근
+        // => post가 let이므로 아래와 같이 변경 => 데이터만 필요하므로 인덱스로 접근  => ??????
         // 포스트에 유저에 대한 정보를 나타내기 위해
         for i in 0 ..< posts.count {
             let post = posts[i]
@@ -52,8 +53,9 @@ struct PostService {
     // 각 user에 맞는 포스트를 프로필에 나타내는 함수
     static func fetchUserPosts(uid: String) async throws -> [Post] {
         // post의 owneruid를 통해 각 유저에 맞는 포스트를 필터링 하여 표현
-        let snapshot = try await Firestore.firestore().collection("posts").whereField("ownerUid", isEqualTo: uid).getDocuments()
+        let snapshot = try await COLLECTION_POSTS.whereField("ownerUid", isEqualTo: uid).getDocuments()
         var posts = try snapshot.documents.compactMap({ try $0.data(as: Post.self) })
+        posts.sort(by: { $0.timestamp.seconds > $1.timestamp.seconds })
         return posts
     }
 }

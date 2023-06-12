@@ -58,7 +58,7 @@ class EditProfileViewModel: ObservableObject {
         // update profile image if changed
         // => Image를 바로 사용할 수 없으므로 UIImage를 받아서 사용하거나, 변환 해준다.
         if let uiImage = uiImage {
-            let imageUrl = try? await ImageUploader.uploadImage(image: uiImage)
+            let imageUrl = try await ImageUploader.uploadImage(image: uiImage)
             data["profileImageUrl"] = imageUrl
         }
         
@@ -75,7 +75,7 @@ class EditProfileViewModel: ObservableObject {
         
         // 데이터가 하나라도 바뀌면 업데이트
         if !data.isEmpty {
-            try await Firestore.firestore().collection("users").document(user.id).updateData(data)
+            try await COLLECTION_USERS.document(user.id).updateData(data)
         }
     }
 }

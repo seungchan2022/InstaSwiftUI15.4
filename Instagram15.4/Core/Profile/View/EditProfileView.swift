@@ -13,6 +13,7 @@ struct EditProfileView: View {
     @Environment(\.dismiss) var dismiss
     @State private var showingImagePicker = false
     @StateObject var viewModel: EditProfileViewModel
+    @State private var isUploading = false // 로딩 표시기를 위한 새로운 상태 변수
     
     // 어딘가에서 사용자를 가져와야 하므로 초기화 해야 된다
     init(user: User) {
@@ -20,99 +21,116 @@ struct EditProfileView: View {
     }
     
     var body: some View {
-        VStack {
-            
-            HStack {
-                // toolbar
-                Button("Cancel") {
-                    dismiss()
-                }
-                
-                Spacer()
-                
-                Text("Edit Profile")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                
-                Spacer()
-                
-                Button {
-                    Task {
-                        try await viewModel.uplaodUserData()
+        ZStack {
+            VStack {
+                HStack {
+                    // toolbar
+                    Button("Cancel") {
                         dismiss()
                     }
-                } label: {
-                    Text("Done")
+                    
+                    Spacer()
+                    
+                    Text("Edit Profile")
                         .font(.subheadline)
-                        .fontWeight(.bold)
-                }
-            }   // HStack
-            .padding(.horizontal)
-            
-            Divider()
-            
-            VStack(spacing: 10) {
-                // image, text
-                Group {
-                    if let image = viewModel.profileImage {
-                        image
-                            .resizable()
-                            .frame(width: 100, height: 100)
-                            .clipShape(Circle())
-                    } else {
-                        CircleProfileImage(user: viewModel.user, size: .large)
+                        .fontWeight(.semibold)
+                    
+                    Spacer()
+                    
+                    Button {
+                        Task {
+                            isUploading = true // 로딩 표시기 시작
+                            try await viewModel.uplaodUserData()
+                            dismiss()
+                            isUploading = false
+                        }
+                    } label: {
+                        Text("Done")
+                            .font(.subheadline)
+                            .fontWeight(.bold)
                     }
-                }
-                .onTapGesture {
-                    showingImagePicker.toggle()
-                }
-                .sheet(isPresented: $showingImagePicker) {
-                    ImagePicker(image: $viewModel.selectedImage)
-                }
-                
-                Text("Edit profile picture")
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color(.systemBlue))
+                    .disabled(isUploading) // 업로드 중에 버튼 비활성화
+                    
+                }   // HStack
+                .padding(.horizontal)
                 
                 Divider()
-            }
-            .padding(.vertical)
-            
-            // fullname, username
-            VStack {
-                EditProfileRowView(title: "Name", placeholder: "Enter your fullname..", text: $viewModel.fullname)
                 
-                EditProfileRowView(title: "Bio", placeholder: "Enter your bio..", text: $viewModel.bio)
-            }
-            .padding()
-            
-            Spacer()
-        }   // view
-    }
-}
-
-struct EditProfileRowView: View {
-    let title: String
-    let placeholder: String
-    @Binding var text: String
-    
-    var body: some View {
-        
-        HStack {
-            Text(title)
-                .padding(.leading, 8)
-                .frame(width: 100, alignment: .leading)
-            
-            VStack {
-                TextField(placeholder, text: $text)
-                    .autocorrectionDisabled()
+                VStack(spacing: 10) {
+                    // image, text
+                    Group {
+                        if let image = viewModel.profileImage {
+                            image
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .overlay(
+                                    Circle()
+                                        .stroke(Color.gray, lineWidth: 0.5)
+                                )
+                        } else {
+                            CircleProfileImage(user: viewModel.user, size: .large)
+                        }
+                    }
+                    .onTapGesture {
+                        showingImagePicker.toggle()
+                    }
+                    .sheet(isPresented: $showingImagePicker) {
+                        ImagePicker(image: $viewModel.selectedImage)
+                    }
+                    
+                    Text("Edit profile picture")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color(.systemBlue))
+                    
+                    Divider()
+                }
+                .padding(.vertical)
                 
-                Divider()
+                // fullname, username
+                VStack {
+                    HStack() {
+                        Text("Name")
+                            .frame(width: 100, alignment: .leading)
+                        
+                        TextField("Enter your fullname", text: $viewModel.fullname)
+                            .font(.subheadline)
+                            .autocorrectionDisabled(true)
+                            .autocapitalization(.none)
+                    }
+                    .padding(.horizontal)
+                    
+                    HStack() {
+                        Text("Bio")
+                            .frame(width: 100, alignment: .leading)
+                        
+                        TextField("Enter your Bio", text: $viewModel.bio)
+                            .font(.subheadline)
+                            .autocorrectionDisabled(true)
+                            .autocapitalization(.none)
+                    }
+                    .padding(.horizontal)
+                }
+                .padding()
+                
+                Spacer()
+                
+            }   // VStack
+            
+            if isUploading { // 로딩 표시기 표시
+                Rectangle()
+                    .fill(Color.black.opacity(0.5))
+                    .ignoresSafeArea()
+                    .allowsHitTesting(true) // Prevent interaction with underlying views
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .frame(width: 80, height: 80)
+                    .background(Color(.systemGray6))
+                    .cornerRadius(10)
+                    .padding()
             }
-        }
-        .font(.subheadline)
-        .frame(height: 36)
+        }   // ZStack
     }
 }
 

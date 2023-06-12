@@ -10,6 +10,8 @@ import SwiftUI
 import Firebase
 
 class UploadPostViewModel: ObservableObject {
+    @Published var caption: String = ""
+    
     @Published var selectedImage: UIImage? {
         didSet { Task { await uploadImage(forItem: selectedImage)} }
     }
@@ -34,12 +36,12 @@ class UploadPostViewModel: ObservableObject {
     }
     
     func uploadPost(caption: String) async throws {
-        // 게시물을 업로드하기 전에는 누가 업로드 하는지와 이미가 있는지 확인해야 한다..
+        // 게시물을 업로드하기 전에는 누가 업로드 하는지와 이미지가 있는지 확인해야 한다..
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let uiImage = uiImage else { return }
         
         // post에 대한 document를 만들면 자동으로 id가 생성된다
-        let postRef = Firestore.firestore().collection("posts").document()
+        let postRef = COLLECTION_POSTS.document()
         //  게시물을 업로드하기전 이미지를 업로드하고 => post에 대한 원시값을 가지고 => 원시값을 인코딩 하여 => 인코딩된 데이터를 세팅한다
         guard let imageUrl = try await ImageUploader.uploadImage(image: uiImage) else { return }
         let post = Post(id: postRef.documentID, ownerUid: uid, caption: caption, likes: 0, imageUrl: imageUrl, timestamp: Timestamp())

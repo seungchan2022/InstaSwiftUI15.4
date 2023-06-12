@@ -15,6 +15,7 @@
 		EC763CED2A2DA9D3006DB0CD /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763CEC2A2DA9D3006DB0CD /* RegistrationViewModel.swift */; };
 		EC763CEF2A2DBBA7006DB0CD /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC763CEE2A2DBBA7006DB0CD /* LoginViewModel.swift */; };
 		EC9F8FD62A3199440053FDDF /* ProfileCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9F8FD52A3199440053FDDF /* ProfileCellViewModel.swift */; };
+		EC9FA56D2A36F7AC004595DD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9FA56C2A36F7AC004595DD /* Constants.swift */; };
 		ECA0A5C82A2ED3AC00D1F9AB /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A5C72A2ED3AC00D1F9AB /* UserService.swift */; };
 		ECA0A5CA2A2ED51A00D1F9AB /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A5C92A2ED51A00D1F9AB /* SearchViewModel.swift */; };
 		ECA0A5CE2A2EFAEC00D1F9AB /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0A5CD2A2EFAEC00D1F9AB /* EditProfileView.swift */; };
@@ -59,6 +60,7 @@
 		EC763CEC2A2DA9D3006DB0CD /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		EC763CEE2A2DBBA7006DB0CD /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		EC9F8FD52A3199440053FDDF /* ProfileCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellViewModel.swift; sourceTree = "<group>"; };
+		EC9FA56C2A36F7AC004595DD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ECA0A5C72A2ED3AC00D1F9AB /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		ECA0A5C92A2ED51A00D1F9AB /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		ECA0A5CD2A2EFAEC00D1F9AB /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				ECA0A5D12A2F295F00D1F9AB /* ImageUploader.swift */,
 				ECB7BF2D2A30707B000B757F /* CircleProfileImage.swift */,
 				ECB7BF332A308E08000B757F /* PostService.swift */,
+				EC9FA56C2A36F7AC004595DD /* Constants.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				ECAB8E452A25C6FD006DC28D /* SearchView.swift in Sources */,
 				ECAB8E272A25AE63006DC28D /* Instagram15_4App.swift in Sources */,
 				ECAB8E3D2A25AF21006DC28D /* MainTabView.swift in Sources */,
+				EC9FA56D2A36F7AC004595DD /* Constants.swift in Sources */,
 				ECA0A5CA2A2ED51A00D1F9AB /* SearchViewModel.swift in Sources */,
 				ECAB647A2A283FFF00A1FC6F /* ProfileCellView.swift in Sources */,
 				ECAB8E472A25D04E006DC28D /* LoginView.swift in Sources */,

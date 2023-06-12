@@ -20,6 +20,11 @@ struct User: Identifiable, Hashable, Codable {
         guard let currentUid = Auth.auth().currentUser?.uid else { return false }
         return currentUid == id
     }
+    
+    // => var isFollowed = false 라고만 하면 화면이 왜 안나오나...????
+    var isFollowed: Bool {
+        return false
+    }
 }
 
 // 아이언맨, 그루트, 조커, 스파이터맨, 베놈
@@ -33,3 +38,4 @@ extension User {
         .init(id: NSUUID().uuidString, username: "venom", fullname: "Eddie Brock", bio: "ironman bio", profileImageUrl: nil, email: "venom@gmail.com"),
     ]
 }
+

@@ -9,6 +9,7 @@ import SwiftUI
 import Kingfisher
 
 struct FeedCell: View {
+    @State private var selectedUser: User? = nil
     
     let post: Post
     
@@ -17,13 +18,20 @@ struct FeedCell: View {
             HStack {    // profileImage, username
                 if let user = post.user {
                     CircleProfileImage(user: user, size: .small)
+                        .onTapGesture {
+                            selectedUser = user
+                        }
+                        .fullScreenCover(item: $selectedUser) { user in
+                            ProfileView(user: user)
+                        }
                     
-                    Button {
-                        print("DEBUG: Did tap user name button..")
-                    } label: {
+                    Button(action: { selectedUser = user}) {
                         Text(post.user?.username ?? "")
                             .font(.headline)
                             .foregroundColor(.black)
+                    }
+                    .fullScreenCover(item: $selectedUser) { user in
+                        ProfileView(user: user)
                     }
                 }
                 Spacer()

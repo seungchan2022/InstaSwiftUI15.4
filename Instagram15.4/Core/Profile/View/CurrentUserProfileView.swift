@@ -13,7 +13,6 @@ struct CurrentUserProfileView: View {
     
     let user: User
     
-    
     var body: some View {
         
         NavigationView {

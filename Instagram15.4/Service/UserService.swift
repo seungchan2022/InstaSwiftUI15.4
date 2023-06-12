@@ -12,7 +12,7 @@ struct UserService {
     
     // uid를 통해 하나의 유저만 불러오도록
     static func fetchUser(withUid uid: String) async throws -> User {
-        let snapshot = try await Firestore.firestore().collection("users").document(uid).getDocument()
+        let snapshot = try await COLLECTION_USERS.document(uid).getDocument()
         return try snapshot.data(as: User.self)
     }
     
@@ -20,7 +20,7 @@ struct UserService {
         var users = [User]()
         
         // users에 대한 모든 snapshot 데이터
-        let snapshot = try await Firestore.firestore().collection("users").getDocuments()
+        let snapshot = try await COLLECTION_USERS.getDocuments()
         let documents = snapshot.documents
         
         for doc in documents {
@@ -30,5 +30,16 @@ struct UserService {
         
         return users
 //        return snapshot.documents.compactMap({ try? $0.data(as: User.self)})
+    }
+    
+    // follow 하는 과정: => following -> currentUid -> user-following -> uid
+    // follow를 하면 following과 follwers가 동시에 설정된다
+    static func follow(uid: String) async throws {
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        
+        try await COLLECTION_FOLLOWING.document(currentUid).collection("user-following").document(uid).setData([:])
+        
+        try await COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUid).setData([:])
+        
     }
 }
